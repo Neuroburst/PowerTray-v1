@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PowerTray.exe" size="217088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PowerTray.exe" size="218624">
       <assemblyIdentity name="PowerTray" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AzQT+dFFFsnMrCj+yOwD+t3iD+HF5z48BoUWfHuAh+k=</dsig:DigestValue>
+        <dsig:DigestValue>OiEve7SWZyqc5m+jyKafHmg7jwIZsBjqALHHyNlw7BQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
