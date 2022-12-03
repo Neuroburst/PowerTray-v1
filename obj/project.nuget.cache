@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "nCS8L8XNbA7GqPjKuGU/9oxaugxCPIapVoehwpWw0xA2P55yyIMJWOnMY2RJ3NwiPARcHf17bL7iOTWCt/laMg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\agpan\\OneDrive\\Desktop\\Coding\\PowerTray\\PowerTray.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\agpan\\.nuget\\packages\\materialskin.2\\2.3.1\\materialskin.2.2.3.1.nupkg.sha512",
+    "C:\\Users\\agpan\\.nuget\\packages\\microsoft.windows.sdk.contracts\\10.0.22621.755\\microsoft.windows.sdk.contracts.10.0.22621.755.nupkg.sha512",
+    "C:\\Users\\agpan\\.nuget\\packages\\system.runtime.interopservices.windowsruntime\\4.3.0\\system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
+    "C:\\Users\\agpan\\.nuget\\packages\\system.runtime.windowsruntime\\4.6.0\\system.runtime.windowsruntime.4.6.0.nupkg.sha512",
+    "C:\\Users\\agpan\\.nuget\\packages\\system.runtime.windowsruntime.ui.xaml\\4.6.0\\system.runtime.windowsruntime.ui.xaml.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}
