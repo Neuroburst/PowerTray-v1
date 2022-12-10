@@ -49,7 +49,7 @@ using Windows.UI.Xaml.Media;
 
 namespace PowerTray
 {
-    class PowerTray
+    public class PowerTray
     {
         [STAThread]
         static void Main()
@@ -69,7 +69,7 @@ namespace PowerTray
         static String trayFontType = "Microsoft Sans Serif";
         static float trayFontQualityMultiplier = 2.0f;
 
-        static int refreshRate = 1000;
+        public static int refreshRate = 1000;
 
         static Color chargingColor = Color.Green;
         static Color highColor = Color.Black;
@@ -95,7 +95,7 @@ namespace PowerTray
             MenuItem settingsItem = new MenuItem();
             MenuItem exitItem = new MenuItem();
 
-            contextMenu.MenuItems.AddRange(new MenuItem[] { infoItem, settingsItem, exitItem });
+            contextMenu.MenuItems.AddRange(new MenuItem[] { infoItem, exitItem });
 
             infoItem.Click += new System.EventHandler(CreateInfoWindow);
             infoItem.Index = 0;
@@ -105,7 +105,7 @@ namespace PowerTray
             settingsItem.Text = "PowerTray Settings";
 
             exitItem.Click += new System.EventHandler(MenuItemClick);
-            exitItem.Index = 2;
+            exitItem.Index = 1;
             exitItem.Text = "Exit";
 
             // Create tray button
@@ -160,10 +160,10 @@ namespace PowerTray
                 timeLeft = (remainChargeCapMwh.Value / -(double)chargeRateMwh.Value) * 60;
             }
 
-            double chargeTime = 0;
+            //double chargeTime = 0;
             if (chargeRateMwh.Value > 0)
             {
-                chargeTime = ((fullChargeCapMwh.Value - remainChargeCapMwh.Value) / (double)chargeRateMwh.Value)*60;
+                timeLeft = ((fullChargeCapMwh.Value - remainChargeCapMwh.Value) / (double)chargeRateMwh.Value)*60;
             }
             // ---
             
@@ -207,10 +207,10 @@ namespace PowerTray
                 Math.Round(batteryPercent, 3).ToString() + "% " + (isPlugged ? "Connected to AC" : "On Battery\n" +
                 EasySecondsToTime((int)timeLeft) + " Remaining") +
 
-                (isPlugged ? (isCharging ? "\nCharging: " + EasySecondsToTime((int)chargeTime) + " until Fully Charged" : "\nNot Charging") + "" : "");
+                (isPlugged ? (isCharging ? "\nCharging: " + EasySecondsToTime((int)timeLeft) + " until Fully Charged" : "\nNot Charging") + "" : "");
             SetNotifyIconText(trayIcon, toolTipText);
 
-            String trayIconText = roundPercent.ToString();
+            String trayIconText = roundPercent == 100 ? ":)" : roundPercent.ToString();
             SolidBrush trayFontColor = new SolidBrush(statusColor);
 
             float dpi;
@@ -281,7 +281,7 @@ namespace PowerTray
             dialog.ShowDialog();
         }
 
-        static String EasySecondsToTime(int seconds) // Convert seconds to a readable format
+        public static String EasySecondsToTime(int seconds) // Convert seconds to a readable format
         {
             String time = "_";
 

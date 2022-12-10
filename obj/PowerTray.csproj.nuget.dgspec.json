@@ -34,6 +34,10 @@
       "frameworks": {
         "net48": {
           "dependencies": {
+            "DotImaging.BitmapSourceInterop": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
             "MaterialSkin.2": {
               "target": "Package",
               "version": "[2.3.1, )"

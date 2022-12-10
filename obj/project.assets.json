@@ -2,6 +2,55 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.8": {
+      "DotImaging.BitmapSourceInterop/4.8.3": {
+        "type": "package",
+        "dependencies": {
+          "DotImaging.GenericImage": "4.8.3"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/DotImaging.BitmapSourceInterop.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.BitmapSourceInterop.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DotImaging.GenericImage/4.8.3": {
+        "type": "package",
+        "dependencies": {
+          "DotImaging.Primitives2D": "4.8.3"
+        },
+        "compile": {
+          "lib/net45/DotImaging.GenericImage.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.GenericImage.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DotImaging.Primitives2D/4.8.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/DotImaging.Primitives2D.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.Primitives2D.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MaterialSkin.2/2.3.1": {
         "type": "package",
         "frameworkAssemblies": [
@@ -155,6 +204,55 @@
       }
     },
     ".NETFramework,Version=v4.8/win": {
+      "DotImaging.BitmapSourceInterop/4.8.3": {
+        "type": "package",
+        "dependencies": {
+          "DotImaging.GenericImage": "4.8.3"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/DotImaging.BitmapSourceInterop.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.BitmapSourceInterop.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DotImaging.GenericImage/4.8.3": {
+        "type": "package",
+        "dependencies": {
+          "DotImaging.Primitives2D": "4.8.3"
+        },
+        "compile": {
+          "lib/net45/DotImaging.GenericImage.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.GenericImage.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DotImaging.Primitives2D/4.8.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/DotImaging.Primitives2D.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.Primitives2D.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MaterialSkin.2/2.3.1": {
         "type": "package",
         "frameworkAssemblies": [
@@ -308,6 +406,55 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x64": {
+      "DotImaging.BitmapSourceInterop/4.8.3": {
+        "type": "package",
+        "dependencies": {
+          "DotImaging.GenericImage": "4.8.3"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/DotImaging.BitmapSourceInterop.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.BitmapSourceInterop.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DotImaging.GenericImage/4.8.3": {
+        "type": "package",
+        "dependencies": {
+          "DotImaging.Primitives2D": "4.8.3"
+        },
+        "compile": {
+          "lib/net45/DotImaging.GenericImage.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.GenericImage.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DotImaging.Primitives2D/4.8.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/DotImaging.Primitives2D.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.Primitives2D.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MaterialSkin.2/2.3.1": {
         "type": "package",
         "frameworkAssemblies": [
@@ -461,6 +608,55 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x86": {
+      "DotImaging.BitmapSourceInterop/4.8.3": {
+        "type": "package",
+        "dependencies": {
+          "DotImaging.GenericImage": "4.8.3"
+        },
+        "frameworkAssemblies": [
+          "PresentationCore",
+          "WindowsBase"
+        ],
+        "compile": {
+          "lib/net45/DotImaging.BitmapSourceInterop.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.BitmapSourceInterop.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DotImaging.GenericImage/4.8.3": {
+        "type": "package",
+        "dependencies": {
+          "DotImaging.Primitives2D": "4.8.3"
+        },
+        "compile": {
+          "lib/net45/DotImaging.GenericImage.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.GenericImage.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DotImaging.Primitives2D/4.8.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/DotImaging.Primitives2D.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/DotImaging.Primitives2D.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MaterialSkin.2/2.3.1": {
         "type": "package",
         "frameworkAssemblies": [
@@ -615,6 +811,47 @@
     }
   },
   "libraries": {
+    "DotImaging.BitmapSourceInterop/4.8.3": {
+      "sha512": "FpRJBgjzkV4GZY5DcIN/JPaGZHUFKQ2yuItOWkFeNMCIyLuEt3n5ukdDKnBDXFXy1if/I7UvMyesa3r59SoxEA==",
+      "type": "package",
+      "path": "dotimaging.bitmapsourceinterop/4.8.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotimaging.bitmapsourceinterop.4.8.3.nupkg.sha512",
+        "dotimaging.bitmapsourceinterop.nuspec",
+        "lib/net45/DotImaging.BitmapSourceInterop.dll",
+        "lib/net45/DotImaging.BitmapSourceInterop.xml",
+        "readme.txt"
+      ]
+    },
+    "DotImaging.GenericImage/4.8.3": {
+      "sha512": "wazaidMKHDUfbaAfoGaSINqDd0C02m1DiHmin6FiQeaccfgYh63Gi8/pvVybZu5nccSiS+tyEEBr5ATPdUl2XQ==",
+      "type": "package",
+      "path": "dotimaging.genericimage/4.8.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotimaging.genericimage.4.8.3.nupkg.sha512",
+        "dotimaging.genericimage.nuspec",
+        "lib/net45/DotImaging.GenericImage.dll",
+        "lib/net45/DotImaging.GenericImage.xml",
+        "readme.txt"
+      ]
+    },
+    "DotImaging.Primitives2D/4.8.3": {
+      "sha512": "+ZF0olyucVQdSSjXVBdMN5GRbJmameOoSBabwfIPMoqr7Im79EZl4sERUFtyyHwLdO3/B6lhLC8yNRfSxkpgFg==",
+      "type": "package",
+      "path": "dotimaging.primitives2d/4.8.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotimaging.primitives2d.4.8.3.nupkg.sha512",
+        "dotimaging.primitives2d.nuspec",
+        "lib/net45/DotImaging.Primitives2D.dll",
+        "lib/net45/DotImaging.Primitives2D.xml"
+      ]
+    },
     "MaterialSkin.2/2.3.1": {
       "sha512": "w2vFxLNk4InCDU7pXDfBqPfv55HhBtuu8HRfEqQpeS3sNTS1pUzDs/hS0b5JW2/tKvt+P1of9OINP8a9omWDBg==",
       "type": "package",
@@ -1027,6 +1264,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
+      "DotImaging.BitmapSourceInterop >= 4.8.3",
       "MaterialSkin.2 >= 2.3.1",
       "Microsoft.Windows.SDK.Contracts >= 10.0.22621.755"
     ]
@@ -1064,6 +1302,10 @@
     "frameworks": {
       "net48": {
         "dependencies": {
+          "DotImaging.BitmapSourceInterop": {
+            "target": "Package",
+            "version": "[4.8.3, )"
+          },
           "MaterialSkin.2": {
             "target": "Package",
             "version": "[2.3.1, )"

@@ -43,6 +43,42 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DotImaging.BitmapSourceInterop.dll" size="7168">
+      <assemblyIdentity name="DotImaging.BitmapSourceInterop" version="4.7.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>9OJ7mCUS/YUSkoB8E9p70s8JDPh4nuDQ4PA57XUdWLg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DotImaging.GenericImage.dll" size="57344">
+      <assemblyIdentity name="DotImaging.GenericImage" version="4.7.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>gm5lNPDnKKB0zm9ZWAiV8TVkqH3tdond4NXKspiadxM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DotImaging.Primitives2D.dll" size="29696">
+      <assemblyIdentity name="DotImaging.Primitives2D" version="4.7.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ltWZ/ABo41MdLekQI/CZuY4Ss0XrX5i2R0kbHLlO954=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MaterialSkin.dll" size="6742528">
       <assemblyIdentity name="MaterialSkin" version="2.3.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -55,14 +91,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PowerTray.exe" size="218624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PowerTray.exe" size="222208">
       <assemblyIdentity name="PowerTray" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>OiEve7SWZyqc5m+jyKafHmg7jwIZsBjqALHHyNlw7BQ=</dsig:DigestValue>
+        <dsig:DigestValue>CZuio46NAzmFcEg7as9QO707NyWWm00JYOvnUk+PDuY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

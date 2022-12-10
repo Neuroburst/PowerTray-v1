@@ -34,3 +34,6 @@ C:\Users\agpan\OneDrive\Desktop\Coding\Visual Studio\PowerTray\obj\Debug\PowerTr
 C:\Users\agpan\OneDrive\Desktop\Coding\Visual Studio\PowerTray\obj\Debug\PowerTray.csproj.CopyComplete
 C:\Users\agpan\OneDrive\Desktop\Coding\Visual Studio\PowerTray\obj\Debug\PowerTray.exe
 C:\Users\agpan\OneDrive\Desktop\Coding\Visual Studio\PowerTray\obj\Debug\PowerTray.pdb
+C:\Users\agpan\OneDrive\Desktop\Coding\Visual Studio\PowerTray\bin\Debug\DotImaging.BitmapSourceInterop.dll
+C:\Users\agpan\OneDrive\Desktop\Coding\Visual Studio\PowerTray\bin\Debug\DotImaging.GenericImage.dll
+C:\Users\agpan\OneDrive\Desktop\Coding\Visual Studio\PowerTray\bin\Debug\DotImaging.Primitives2D.dll

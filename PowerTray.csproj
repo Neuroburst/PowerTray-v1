@@ -114,7 +114,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include=".editorconfig" />
-    <None Include="percentage_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -144,6 +143,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DotImaging.BitmapSourceInterop">
+      <Version>4.8.3</Version>
+    </PackageReference>
     <PackageReference Include="MaterialSkin.2">
       <Version>2.3.1</Version>
     </PackageReference>
