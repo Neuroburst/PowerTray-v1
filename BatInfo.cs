@@ -6,11 +6,11 @@ using Windows.UI.ViewManagement;
 using System.Drawing;
 using System.Reflection;
 
-//using Windows.Graphics.Imaging;
 using System.Windows.Media.Imaging;
 
 using System.Runtime.InteropServices;
 using Microsoft.SqlServer.Server;
+using System.Security.Cryptography;
 //using Windows.UI.Xaml.Media.Imaging;
 
 
@@ -18,14 +18,12 @@ namespace PowerTray
 {
     public partial class BatInfo : Form
     {
-        static public bool AutoRefresh = false;
         public BatInfo()
         {
             InitializeComponent();
-
             Timer timer = new Timer
             {
-                Interval = PowerTray.refreshRate,
+                Interval = PowerTray.batInfoRefreshRate,
             };
             timer.Tick += new EventHandler(RefreshList);
             timer.Start();
@@ -50,7 +48,7 @@ namespace PowerTray
 
         public void RefreshList(object sender = null, EventArgs e = null)
         {
-            if (sender != null && AutoRefresh == false)
+            if (sender != null && PowerTray.batInfoAutoRefresh == false)
             {
                 return;
             }
@@ -65,91 +63,66 @@ namespace PowerTray
                 break;
             };
 
-            var batteryReport = Battery.AggregateBattery.GetReport(); // get battery info
-
-            // use battery info
-            String description = "Blank";
-            String caption = "Blank";
-            String modelID = "Unknown";
-            String expectedRunTime = "Unknown";
-            String status = "Unknown";
-
-            String voltage = "?";
-
-            
-
-            foreach (PropertyData property in main_battery.Properties){
-                if (property.Value != null)
-                {
-                    if (property.Name == "Description")
-                    {
-                        description = (String)property.Value;
-                    }
-
-                    if (property.Name == "Caption")
-                    {
-                        caption = (String)property.Value;
-                    }
-
-                    if (property.Name == "DeviceID")
-                    {
-                        modelID = (String)property.Value;
-                    }
-
-                    if (property.Name == "DesignVoltage")
-                    {
-                        voltage = property.Value.ToString();
-                    }
-
-                    if (property.Name == "ExpectedRunTime")
-                    {
-                        expectedRunTime = property.Value.ToString();
-                    }
-
-                    if (property.Name == "Status")
-                    {
-                        status = property.Value.ToString();
-                    }
-                }
-            }
-
-            var designChargeCapMwh = batteryReport.DesignCapacityInMilliwattHours;
-            var fullChargeCapMwh = batteryReport.FullChargeCapacityInMilliwattHours;
-            var remainChargeCapMwh = batteryReport.RemainingCapacityInMilliwattHours;
-            var chargeRateMwh = batteryReport.ChargeRateInMilliwatts;
+            var batteryInfo = PowerTray.GetBatteryInfo();
+            var designChargeCapMwh = batteryInfo["designChargeCapMwh"];
+            var fullChargeCapMwh = batteryInfo["fullChargeCapMwh"];
+            var remainChargeCapMwh = batteryInfo["remainChargeCapMwh"];
+            var chargeRateMwh = batteryInfo["chargeRateMwh"];
 
             double health = ((double)fullChargeCapMwh / (double)designChargeCapMwh) * 100;
 
-            double batteryPercent = (remainChargeCapMwh.Value / (double)fullChargeCapMwh.Value) * 100;
-            
+            double batteryPercent = (remainChargeCapMwh / (double)fullChargeCapMwh) * 100;
+
             double timeLeft = 0;
-            if (chargeRateMwh.Value < 0)
+            if (chargeRateMwh < 0)
             {
-                timeLeft = (remainChargeCapMwh.Value / -(double)chargeRateMwh.Value) * 60;
+                timeLeft = (remainChargeCapMwh / -(double)chargeRateMwh) * 60;
             }
-            else if (chargeRateMwh.Value > 0)
+            else if (chargeRateMwh > 0)
             {
-                timeLeft = ((fullChargeCapMwh.Value - remainChargeCapMwh.Value) / (double)chargeRateMwh.Value) * 60;
+                timeLeft = ((fullChargeCapMwh - remainChargeCapMwh) / (double)chargeRateMwh) * 60;
             }
             // ---
-
             Values.Items.Clear();
+            Items.Items.Clear();
+
+            Items.Items.Add("Percent");
             Values.Items.Add(batteryPercent.ToString() + "%");
+            Items.Items.Add(chargeRateMwh > 0 ? "Full Recharge Time" : "Full Discharge Time");
             Values.Items.Add(PowerTray.EasySecondsToTime((int)timeLeft));
+            Items.Items.Add("Power Status");
             Values.Items.Add(SystemInformation.PowerStatus.PowerLineStatus.ToString());
+
+            Items.Items.Add("---");
             Values.Items.Add("");
+
+            Items.Items.Add("Design Capacity");
             Values.Items.Add(designChargeCapMwh.ToString() + " mWh");
+            Items.Items.Add("Current Capacity");
             Values.Items.Add(fullChargeCapMwh.ToString() + " mWh");
+            Items.Items.Add("Current Charge");
             Values.Items.Add(remainChargeCapMwh.ToString() + " mWh");
-            Values.Items.Add(chargeRateMwh.ToString() + " mWh");
+            Items.Items.Add(chargeRateMwh > 0 ? "Charge Rate" : "Discharge Rate");
+            Values.Items.Add(Math.Abs(chargeRateMwh).ToString() + " mWh");
+            Items.Items.Add("Battery Health");
             Values.Items.Add(health.ToString() + "%");
+
+            Items.Items.Add("- - - - -");
+            Values.Items.Add("- - - - -");
+            Items.Items.Add("Other Battery Stats:");
             Values.Items.Add("");
-            Values.Items.Add(description);
-            Values.Items.Add(caption);
-            Values.Items.Add(modelID);
-            Values.Items.Add(expectedRunTime);
-            Values.Items.Add(voltage + "V");
-            Values.Items.Add(status);
+            Items.Items.Add("");
+            Values.Items.Add("");
+
+            // add extra info to bottom
+            foreach (PropertyData property in main_battery.Properties)
+            {
+                if (property.Value != null)
+                {
+                    Items.Items.Add(property.Name);
+                    Values.Items.Add(property.Value.ToString());
+                }
+            }
         }
 
 
@@ -194,7 +167,7 @@ namespace PowerTray
 
         private void AutoRefreshToggle(object sender, EventArgs e)
         {
-            AutoRefresh = !AutoRefresh;
+            PowerTray.batInfoAutoRefresh = !PowerTray.batInfoAutoRefresh;
         }
     }
 }

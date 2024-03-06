@@ -48,7 +48,6 @@ C:\Users\agpan\Programming\PowerTray\bin\Debug\DotImaging.Primitives2D.dll
 C:\Users\agpan\Programming\PowerTray\bin\Debug\MaterialSkin.dll
 C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.csproj.AssemblyReference.cache
 C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.BatInfo.resources
-C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.Form1.resources
 C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.Properties.Resources.resources
 C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.csproj.GenerateResource.cache
 C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.csproj.CoreCompileInputs.cache

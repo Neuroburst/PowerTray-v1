@@ -1,39 +1,18 @@
-﻿//using System;
-//using System.Drawing;
-//using System.Runtime.InteropServices;
-//using System.Windows.Forms;
-//namespace PowerTray
-//{
-//    static class Program
-//    {
-//        /// <summary>
-//        /// The main entry point for the application.
-//        /// </summary>
-//        [STAThread]
-//        static void Main()
-//        {
-//            Application.EnableVisualStyles();
-//            Application.SetCompatibleTextRenderingDefault(false);
-
-//            TrayIcon trayIcon = new TrayIcon();
-
-//            Application.Run();
-//        }
-//    }
-//}
-
-// TODO: 
+﻿// TODO: 
 // Important: Support Situations in which:
 // No System Battery
 // Multiple Batteries
 // Unknown Battery Condition
 
 // TODO:
-// fix flicker when updating
-// list all battery stats
-// make font size bigger
-// more info in tooltip
-// only get taskbar darkmode
+// fix flicker in battery info dialog
+
+// add settings menu (for global options)
+// make option to switch view
+// add option for better discharge calculation
+
+// make font size bigger and look better
+// only get taskbar darkmode AND MAKE DARKMODE WORK IN GENERAL
 
 using System;
 using System.Collections.Generic;
@@ -52,6 +31,7 @@ using Windows.ApplicationModel.Background;
 using Windows.UI.ViewManagement;
 using System.Drawing.Text;
 using Windows.UI.Xaml.Media;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace PowerTray
 {
@@ -65,17 +45,19 @@ namespace PowerTray
             _ = new PowerTray();
             Application.Run();
         }
-
+        // import dll for battery data
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         static extern bool DestroyIcon(IntPtr handle);
         private readonly NotifyIcon trayIcon;
 
-        // Options ---
+        // Params ---
         static int trayFontSize = 11;
-        static String trayFontType = "Microsoft Sans Serif";
+        static String trayFontType = "Segoe UI";
         static float trayFontQualityMultiplier = 2.0f;
 
-        public static int refreshRate = 100;
+        public static int trayRefreshRate = 500;
+        public static int batInfoRefreshRate = 250;
+        static public bool batInfoAutoRefresh = false;
 
         static Color chargingColor = Color.Green;
         static Color highColor = Color.Black;
@@ -83,10 +65,8 @@ namespace PowerTray
         static Color mediumColor = Color.FromArgb(255, 220, 100, 20);
         static Color lowColor = Color.FromArgb(255, 232, 17, 35);
 
-        static Color errorColor = Color.Black;
-
-        static int highAmount = 60;
-        static int mediumAmount = 40;
+        static int highAmount = 50;
+        static int mediumAmount = 30;
         static int lowAmount = 0;
         // ---
 
@@ -96,7 +76,7 @@ namespace PowerTray
         {
             // Create Context Menu
             ContextMenu contextMenu = new ContextMenu();
-            
+
             MenuItem infoItem = new MenuItem();
             MenuItem settingsItem = new MenuItem();
             MenuItem exitItem = new MenuItem();
@@ -120,11 +100,9 @@ namespace PowerTray
             trayIcon.Visible = true;
             //trayIcon.Click += new System.EventHandler(CreateInfoWindow); // weirdly also imputs right clicks and context menu clicks
 
-            // Create Update Timer
-            Timer timer = new Timer
-            {
-                Interval = refreshRate,
-            };
+            // Create Update Timer for tray icon
+            Timer timer = new Timer();
+            timer.Interval = trayRefreshRate;
             timer.Tick += new EventHandler(UpdateTray);
             timer.Start();
         }
@@ -133,52 +111,36 @@ namespace PowerTray
             // check if dark mode is enabled ---
             var background = new UISettings().GetColorValue(UIColorType.Background);
 
-            bool darkModeEnabled = Color.FromArgb(background.A, background.R, background.G, background.B) == 
+            bool darkModeEnabled = Color.FromArgb(background.A, background.R, background.G, background.B) ==
                 Color.FromArgb(255, 0, 0, 0);
             // ---
 
-            //var batteries = new ManagementObjectSearcher("SELECT * FROM CIM_Battery").Get(); //get advanced battery info
-            //ManagementObject main_battery = new ManagementObject();
+            var bat_info = GetBatteryInfo();
 
-            ////gets the first battery using the dumbest way possible :)
-            //foreach (ManagementObject battery in batteries)
-            //{
-            //    main_battery = battery;
-            //    break;
-            //};
+            var fullChargeCapMwh = bat_info["fullChargeCapMwh"];
+            var remainChargeCapMwh = bat_info["remainChargeCapMwh"];
+            var chargeRateMwh = bat_info["chargeRateMwh"];
 
-            var batteryReport = Battery.AggregateBattery.GetReport(); // get battery info
-
-            // use battery info
-            bool isPlugged = SystemInformation.PowerStatus.PowerLineStatus == PowerLineStatus.Online;
-
-            bool isCharging = batteryReport.Status == BatteryStatus.Charging;
-
-            var fullChargeCapMwh = batteryReport.FullChargeCapacityInMilliwattHours;
-            var remainChargeCapMwh = batteryReport.RemainingCapacityInMilliwattHours;
-            var chargeRateMwh = batteryReport.ChargeRateInMilliwatts;
-
-            double batteryPercent = (remainChargeCapMwh.Value / (double)fullChargeCapMwh.Value)*100;
+            double batteryPercent = (remainChargeCapMwh / (double)fullChargeCapMwh) * 100;
 
             double timeLeft = 0;
-            if (chargeRateMwh.Value < 0)
+            if (chargeRateMwh < 0)
             {
-                timeLeft = (remainChargeCapMwh.Value / -(double)chargeRateMwh.Value) * 60;
+                timeLeft = (remainChargeCapMwh / -(double)chargeRateMwh) * 60;
             }
 
-            //double chargeTime = 0;
-            if (chargeRateMwh.Value > 0)
+            if (chargeRateMwh > 0)
             {
-                timeLeft = ((fullChargeCapMwh.Value - remainChargeCapMwh.Value) / (double)chargeRateMwh.Value)*60;
+                timeLeft = ((fullChargeCapMwh - remainChargeCapMwh) / (double)chargeRateMwh) * 60;
             }
             // ---
-            
+
 
             int roundPercent = (int)Math.Round(batteryPercent, 0);
 
             Color statusColor = highColor;
 
-            if (isCharging)
+            if (chargeRateMwh > 0)
             {
                 statusColor = chargingColor;
             }
@@ -208,14 +170,8 @@ namespace PowerTray
                     statusColor = LightenColor(statusColor);
                 }
             }
-            
-            String toolTipText =
-                Math.Round(batteryPercent, 3).ToString() + "% " + (isPlugged ? "Connected to AC" : "On Battery\n" +
-                EasySecondsToTime((int)timeLeft) + " Remaining") +
-
-                (isPlugged ? (isCharging ? "\nCharging: " + EasySecondsToTime((int)timeLeft) + " until Fully Charged" : "\nNot Charging") + "" : "");
-            SetNotifyIconText(trayIcon, toolTipText);
-
+            var toolTipText = CreateTooltipText(sender, e);
+            // Tray Icon ---
             String trayIconText = roundPercent == 100 ? ":)" : roundPercent.ToString();
             SolidBrush trayFontColor = new SolidBrush(statusColor);
 
@@ -239,7 +195,7 @@ namespace PowerTray
             }
 
             var iconDimension = (int)Math.Round(16 * (dpi / 96));
-            
+
             // Draw the tray icon
             using (var bitmap = new Bitmap(iconDimension, iconDimension))
             {
@@ -261,21 +217,60 @@ namespace PowerTray
                 }
 
                 // Set tray icon from the drawn bitmap image.
-                var handle = ExecuteWithRetry(bitmap.GetHicon);
+                System.IntPtr intPtr = bitmap.GetHicon();
                 try
                 {
-                    trayIcon.Icon?.Dispose();
-                    trayIcon.Icon = Icon.FromHandle(handle);
+                    using (Icon icon = Icon.FromHandle(intPtr))
+                    {
+                        trayIcon.Icon?.Dispose();
+                        trayIcon.Icon = icon;
+                        SetNotifyIconText(trayIcon, toolTipText);
+                        //trayIcon.Text = toolTipText;
+                    }
                 }
                 finally
                 {
                     // Destroy icon hand to release it from memory as soon as it's set to the tray.
-                    DestroyIcon(handle);
+                    DestroyIcon(intPtr);
                     // This should be the very last call when updating the tray icon.
                 }
             }
+            //---
         }
 
+        private string CreateTooltipText(object sender, EventArgs e)
+        {
+            var bat_info = GetBatteryInfo();
+
+            // use battery info
+            bool isPlugged = SystemInformation.PowerStatus.PowerLineStatus == PowerLineStatus.Online;
+            bool isCharging = bat_info["Status"] == BatteryStatus.Charging;
+
+            var fullChargeCapMwh = bat_info["fullChargeCapMwh"];
+            var remainChargeCapMwh = bat_info["remainChargeCapMwh"];
+            var chargeRateMwh = bat_info["chargeRateMwh"];
+
+            double batteryPercent = (remainChargeCapMwh / (double)fullChargeCapMwh) * 100;
+
+            double timeLeft = 0;
+            if (chargeRateMwh < 0)
+            {
+                timeLeft = (remainChargeCapMwh / -(double)chargeRateMwh) * 60;
+            }
+
+            if (chargeRateMwh > 0)
+            {
+                timeLeft = ((fullChargeCapMwh - remainChargeCapMwh) / (double)chargeRateMwh) * 60;
+
+            }
+            String toolTipText =
+                Math.Round(batteryPercent, 3).ToString() + "% " + (isPlugged ? "connected to AC" : "on battery\n" +
+            EasySecondsToTime((int)timeLeft) + " remaining") +
+                (chargeRateMwh > 0 ? (isCharging ? "\nCharging: " + EasySecondsToTime((int)timeLeft) + " until fully charged" : "\nnot charging") + "" : "") +
+                "\n\n" + "Current Charge: " + remainChargeCapMwh.ToString() + " mWh" +
+                "\n" + (chargeRateMwh > 0 ? "Charge Rate: " : "Discharge Rate: ") + Math.Abs((int)chargeRateMwh).ToString() + " mWh";
+            return toolTipText;
+        }
         private void CreateInfoWindow(object sender, System.EventArgs e)
         {
             BatInfo dialog = new BatInfo();
@@ -305,6 +300,19 @@ namespace PowerTray
                 time = "Unknown minutes";
             }
             return time;
+        }
+
+        public static Dictionary<string, dynamic> GetBatteryInfo()
+        {
+            var dataDict = new Dictionary<string, dynamic>();
+            var batteryReport = Battery.AggregateBattery.GetReport(); // get battery info
+            dataDict.Add("designChargeCapMwh", batteryReport.DesignCapacityInMilliwattHours);
+            dataDict.Add("fullChargeCapMwh", batteryReport.FullChargeCapacityInMilliwattHours);
+            dataDict.Add("remainChargeCapMwh", batteryReport.RemainingCapacityInMilliwattHours);
+            dataDict.Add("chargeRateMwh", batteryReport.ChargeRateInMilliwatts);
+            dataDict.Add("Status", batteryReport.Status);
+
+            return dataDict;
         }
         public static void SetNotifyIconText(NotifyIcon ni, string text) // bypass 63 character limit for tooltips
         {
@@ -350,7 +358,5 @@ namespace PowerTray
                 }
             }
         }
-        // ---
     }
 }
-

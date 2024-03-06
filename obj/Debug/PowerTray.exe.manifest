@@ -91,14 +91,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PowerTray.exe" size="222208">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PowerTray.exe" size="229376">
       <assemblyIdentity name="PowerTray" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DXcW4DJW7Ey5MhF0NrKJd3leu0T0NTTHUZFFMeDwQ38=</dsig:DigestValue>
+        <dsig:DigestValue>Jz8ZK5pTAP4AXjT8qEJTo6xUnvo0ruaCjHhDeEDr/n0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
