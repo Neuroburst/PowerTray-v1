@@ -79,33 +79,37 @@ namespace PowerTray
             
 
             foreach (PropertyData property in main_battery.Properties){
-                if (property.Name == "Description")
+                if (property.Value != null)
                 {
-                    description = (String)property.Value;
-                }
+                    if (property.Name == "Description")
+                    {
+                        description = (String)property.Value;
+                    }
 
-                if (property.Name == "Caption")
-                {
-                    caption = (String)property.Value;
-                }
+                    if (property.Name == "Caption")
+                    {
+                        caption = (String)property.Value;
+                    }
 
-                if (property.Name == "DeviceID") {
-                    modelID = (String)property.Value;
-                }
+                    if (property.Name == "DeviceID")
+                    {
+                        modelID = (String)property.Value;
+                    }
 
-                if (property.Name == "DesignVoltage")
-                {
-                    voltage = property.Value.ToString();
-                }
+                    if (property.Name == "DesignVoltage")
+                    {
+                        voltage = property.Value.ToString();
+                    }
 
-                if (property.Name == "ExpectedRunTime")
-                {
-                    expectedRunTime = property.Value.ToString();
-                }
+                    if (property.Name == "ExpectedRunTime")
+                    {
+                        expectedRunTime = property.Value.ToString();
+                    }
 
-                if (property.Name == "Status")
-                {
-                    status = property.Value.ToString();
+                    if (property.Name == "Status")
+                    {
+                        status = property.Value.ToString();
+                    }
                 }
             }
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FIMqF8/RDxgHBW5wtBX7Mm7cBxY48KOWmObpqo9c5T+A7IzQ8m2wGvjcrYyIEf+KVPk5Z6Lkc9U6YTeAkZxTtA==",
+  "dgSpecHash": "2MIstZesyWHGSg0LjqFHU3p3hUi/rUq5Phw0LDCwT4EYwzw2K2hcfUN8/7jzJCM6oJ0OEziI59MMvNQ0obVHvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\agpan\\OneDrive\\Desktop\\Coding\\Visual Studio\\PowerTray\\PowerTray.csproj",
+  "projectFilePath": "C:\\Users\\agpan\\Programming\\PowerTray\\PowerTray.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\agpan\\.nuget\\packages\\dotimaging.bitmapsourceinterop\\4.8.3\\dotimaging.bitmapsourceinterop.4.8.3.nupkg.sha512",
     "C:\\Users\\agpan\\.nuget\\packages\\dotimaging.genericimage\\4.8.3\\dotimaging.genericimage.4.8.3.nupkg.sha512",

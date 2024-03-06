@@ -22,11 +22,17 @@
 //    }
 //}
 
+// TODO: 
 // Important: Support Situations in which:
 // No System Battery
 // Multiple Batteries
 // Unknown Battery Condition
 
+// TODO:
+// fix flicker when updating
+// list all battery stats
+// make font size bigger
+// more info in tooltip
 // only get taskbar darkmode
 
 using System;
@@ -69,7 +75,7 @@ namespace PowerTray
         static String trayFontType = "Microsoft Sans Serif";
         static float trayFontQualityMultiplier = 2.0f;
 
-        public static int refreshRate = 1000;
+        public static int refreshRate = 100;
 
         static Color chargingColor = Color.Green;
         static Color highColor = Color.Black;

@@ -37,3 +37,23 @@ C:\Users\agpan\OneDrive\Desktop\Coding\Visual Studio\PowerTray\obj\Debug\PowerTr
 C:\Users\agpan\OneDrive\Desktop\Coding\Visual Studio\PowerTray\bin\Debug\DotImaging.BitmapSourceInterop.dll
 C:\Users\agpan\OneDrive\Desktop\Coding\Visual Studio\PowerTray\bin\Debug\DotImaging.GenericImage.dll
 C:\Users\agpan\OneDrive\Desktop\Coding\Visual Studio\PowerTray\bin\Debug\DotImaging.Primitives2D.dll
+C:\Users\agpan\Programming\PowerTray\bin\Debug\PowerTray.exe.config
+C:\Users\agpan\Programming\PowerTray\bin\Debug\PowerTray.exe.manifest
+C:\Users\agpan\Programming\PowerTray\bin\Debug\PowerTray.application
+C:\Users\agpan\Programming\PowerTray\bin\Debug\PowerTray.exe
+C:\Users\agpan\Programming\PowerTray\bin\Debug\PowerTray.pdb
+C:\Users\agpan\Programming\PowerTray\bin\Debug\DotImaging.BitmapSourceInterop.dll
+C:\Users\agpan\Programming\PowerTray\bin\Debug\DotImaging.GenericImage.dll
+C:\Users\agpan\Programming\PowerTray\bin\Debug\DotImaging.Primitives2D.dll
+C:\Users\agpan\Programming\PowerTray\bin\Debug\MaterialSkin.dll
+C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.csproj.AssemblyReference.cache
+C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.BatInfo.resources
+C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.Form1.resources
+C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.Properties.Resources.resources
+C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.csproj.GenerateResource.cache
+C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.csproj.CoreCompileInputs.cache
+C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.exe.manifest
+C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.application
+C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.csproj.Up2Date
+C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.exe
+C:\Users\agpan\Programming\PowerTray\obj\Debug\PowerTray.pdb
