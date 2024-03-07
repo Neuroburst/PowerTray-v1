@@ -51,18 +51,6 @@
           }
         }
       },
-      "MaterialSkin.2/2.3.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Design"
-        ],
-        "compile": {
-          "lib/net48/MaterialSkin.dll": {}
-        },
-        "runtime": {
-          "lib/net48/MaterialSkin.dll": {}
-        }
-      },
       "Microsoft.Windows.SDK.Contracts/10.0.22621.755": {
         "type": "package",
         "dependencies": {
@@ -251,18 +239,6 @@
           "lib/net45/DotImaging.Primitives2D.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "MaterialSkin.2/2.3.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Design"
-        ],
-        "compile": {
-          "lib/net48/MaterialSkin.dll": {}
-        },
-        "runtime": {
-          "lib/net48/MaterialSkin.dll": {}
         }
       },
       "Microsoft.Windows.SDK.Contracts/10.0.22621.755": {
@@ -455,18 +431,6 @@
           }
         }
       },
-      "MaterialSkin.2/2.3.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Design"
-        ],
-        "compile": {
-          "lib/net48/MaterialSkin.dll": {}
-        },
-        "runtime": {
-          "lib/net48/MaterialSkin.dll": {}
-        }
-      },
       "Microsoft.Windows.SDK.Contracts/10.0.22621.755": {
         "type": "package",
         "dependencies": {
@@ -655,18 +619,6 @@
           "lib/net45/DotImaging.Primitives2D.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "MaterialSkin.2/2.3.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Design"
-        ],
-        "compile": {
-          "lib/net48/MaterialSkin.dll": {}
-        },
-        "runtime": {
-          "lib/net48/MaterialSkin.dll": {}
         }
       },
       "Microsoft.Windows.SDK.Contracts/10.0.22621.755": {
@@ -859,18 +811,6 @@
           }
         }
       },
-      "MaterialSkin.2/2.3.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Design"
-        ],
-        "compile": {
-          "lib/net48/MaterialSkin.dll": {}
-        },
-        "runtime": {
-          "lib/net48/MaterialSkin.dll": {}
-        }
-      },
       "Microsoft.Windows.SDK.Contracts/10.0.22621.755": {
         "type": "package",
         "dependencies": {
@@ -1052,23 +992,6 @@
         "dotimaging.primitives2d.nuspec",
         "lib/net45/DotImaging.Primitives2D.dll",
         "lib/net45/DotImaging.Primitives2D.xml"
-      ]
-    },
-    "MaterialSkin.2/2.3.1": {
-      "sha512": "w2vFxLNk4InCDU7pXDfBqPfv55HhBtuu8HRfEqQpeS3sNTS1pUzDs/hS0b5JW2/tKvt+P1of9OINP8a9omWDBg==",
-      "type": "package",
-      "path": "materialskin.2/2.3.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net45/MaterialSkin.dll",
-        "lib/net461/MaterialSkin.dll",
-        "lib/net48/MaterialSkin.dll",
-        "lib/net5.0-windows7.0/MaterialSkin.dll",
-        "materialskin.2.2.3.1.nupkg.sha512",
-        "materialskin.2.nuspec",
-        "nugetIcon.png"
       ]
     },
     "Microsoft.Windows.SDK.Contracts/10.0.22621.755": {
@@ -1467,7 +1390,6 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
       "DotImaging.BitmapSourceInterop >= 4.8.3",
-      "MaterialSkin.2 >= 2.3.1",
       "Microsoft.Windows.SDK.Contracts >= 10.0.22621.755"
     ]
   },
@@ -1517,10 +1439,6 @@
           "DotImaging.BitmapSourceInterop": {
             "target": "Package",
             "version": "[4.8.3, )"
-          },
-          "MaterialSkin.2": {
-            "target": "Package",
-            "version": "[2.3.1, )"
           },
           "Microsoft.Windows.SDK.Contracts": {
             "target": "Package",

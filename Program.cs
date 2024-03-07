@@ -5,13 +5,14 @@
 // Unknown Battery Condition
 
 // TODO:
-// fix flicker in battery info dialog
+// switch to WPF?
 
 // add settings menu (for global options)
-// make option to switch view
+// make option to switch tray view
 // add option for better discharge calculation
 
-// make font size bigger and look better
+// make tray font size bigger and look better
+// fix flicker in battery info dialog
 // only get taskbar darkmode AND MAKE DARKMODE WORK IN GENERAL
 
 using System;
@@ -27,11 +28,8 @@ using Windows.Devices.Power;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.System.Power;
-using Windows.ApplicationModel.Background;
 using Windows.UI.ViewManagement;
 using System.Drawing.Text;
-using Windows.UI.Xaml.Media;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace PowerTray
 {
@@ -81,7 +79,7 @@ namespace PowerTray
             MenuItem settingsItem = new MenuItem();
             MenuItem exitItem = new MenuItem();
 
-            contextMenu.MenuItems.AddRange(new MenuItem[] { infoItem, exitItem });
+            contextMenu.MenuItems.AddRange(new MenuItem[] { infoItem, settingsItem, exitItem });
 
             infoItem.Click += new System.EventHandler(CreateInfoWindow);
             infoItem.Index = 0;
@@ -91,7 +89,7 @@ namespace PowerTray
             settingsItem.Text = "PowerTray Settings";
 
             exitItem.Click += new System.EventHandler(MenuItemClick);
-            exitItem.Index = 1;
+            exitItem.Index = 2;
             exitItem.Text = "Exit";
 
             // Create tray button

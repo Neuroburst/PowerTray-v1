@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 using Windows.Devices.Power;
 using System.Management;
 using Windows.UI.ViewManagement;
 using System.Drawing;
 using System.Reflection;
-
-using System.Windows.Media.Imaging;
-
-using System.Runtime.InteropServices;
-using Microsoft.SqlServer.Server;
-using System.Security.Cryptography;
-//using Windows.UI.Xaml.Media.Imaging;
-
 
 namespace PowerTray
 {
@@ -36,6 +29,7 @@ namespace PowerTray
             bool darkModeEnabled = Color.FromArgb(background.A, background.R, background.G, background.B) ==
                 Color.FromArgb(255, 0, 0, 0);
 
+            
             //if (darkModeEnabled)
             //{
 
@@ -83,46 +77,53 @@ namespace PowerTray
                 timeLeft = ((fullChargeCapMwh - remainChargeCapMwh) / (double)chargeRateMwh) * 60;
             }
             // ---
-            Values.Items.Clear();
-            Items.Items.Clear();
+            List<string> values = new List<string>();
+            List<string> items = new List<string>();
 
-            Items.Items.Add("Percent");
-            Values.Items.Add(batteryPercent.ToString() + "%");
-            Items.Items.Add(chargeRateMwh > 0 ? "Full Recharge Time" : "Full Discharge Time");
-            Values.Items.Add(PowerTray.EasySecondsToTime((int)timeLeft));
-            Items.Items.Add("Power Status");
-            Values.Items.Add(SystemInformation.PowerStatus.PowerLineStatus.ToString());
+            items.Add("Percent");
+            values.Add(batteryPercent.ToString() + "%");
+            items.Add(chargeRateMwh > 0 ? "Full Recharge Time" : "Full Discharge Time");
+            values.Add(PowerTray.EasySecondsToTime((int)timeLeft));
+            items.Add("Power Status");
+            values.Add(SystemInformation.PowerStatus.PowerLineStatus.ToString());
 
-            Items.Items.Add("---");
-            Values.Items.Add("");
+            items.Add("---");
+            values.Add("");
 
-            Items.Items.Add("Design Capacity");
-            Values.Items.Add(designChargeCapMwh.ToString() + " mWh");
-            Items.Items.Add("Current Capacity");
-            Values.Items.Add(fullChargeCapMwh.ToString() + " mWh");
-            Items.Items.Add("Current Charge");
-            Values.Items.Add(remainChargeCapMwh.ToString() + " mWh");
-            Items.Items.Add(chargeRateMwh > 0 ? "Charge Rate" : "Discharge Rate");
-            Values.Items.Add(Math.Abs(chargeRateMwh).ToString() + " mWh");
-            Items.Items.Add("Battery Health");
-            Values.Items.Add(health.ToString() + "%");
+            items.Add("Design Capacity");
+            values.Add(designChargeCapMwh.ToString() + " mWh");
+            items.Add("Current Capacity");
+            values.Add(fullChargeCapMwh.ToString() + " mWh");
+            items.Add("Current Charge");
+            values.Add(remainChargeCapMwh.ToString() + " mWh");
+            items.Add(chargeRateMwh > 0 ? "Charge Rate" : "Discharge Rate");
+            values.Add(Math.Abs(chargeRateMwh).ToString() + " mWh");
+            items.Add("Battery Health");
+            values.Add(health.ToString() + "%");
 
-            Items.Items.Add("- - - - -");
-            Values.Items.Add("- - - - -");
-            Items.Items.Add("Other Battery Stats:");
-            Values.Items.Add("");
-            Items.Items.Add("");
-            Values.Items.Add("");
+            items.Add("- - - - -");
+            values.Add("- - - - -");
+            items.Add("Other Battery Stats:");
+            values.Add("");
+            items.Add("");
+            values.Add("");
 
             // add extra info to bottom
             foreach (PropertyData property in main_battery.Properties)
             {
                 if (property.Value != null)
                 {
-                    Items.Items.Add(property.Name);
-                    Values.Items.Add(property.Value.ToString());
+                    items.Add(property.Name);
+                    values.Add(property.Value.ToString());
                 }
             }
+
+            // update list
+            Values.Items.Clear();
+            Items.Items.Clear();
+
+            Values.Items.AddRange(values.ToArray());
+            Items.Items.AddRange(items.ToArray());
         }
 
 

@@ -7,14 +7,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="PowerTray.exe.manifest" size="6619">
+    <dependentAssembly dependencyType="install" codebase="PowerTray.exe.manifest" size="5975">
       <assemblyIdentity name="PowerTray.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HkovsPoOZrCkdSgUE029o+fc0h3E4+eQ/PyLBZ36JWA=</dsig:DigestValue>
+        <dsig:DigestValue>Z894f1VFg36OE/Yb2CylqW7+2yy+kLswWMi0EAK7TpA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

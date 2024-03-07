@@ -137,9 +137,6 @@
     <PackageReference Include="DotImaging.BitmapSourceInterop">
       <Version>4.8.3</Version>
     </PackageReference>
-    <PackageReference Include="MaterialSkin.2">
-      <Version>2.3.1</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.Windows.SDK.Contracts">
       <Version>10.0.22621.755</Version>
     </PackageReference>

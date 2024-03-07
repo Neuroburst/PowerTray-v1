@@ -79,18 +79,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MaterialSkin.dll" size="6742528">
-      <assemblyIdentity name="MaterialSkin" version="2.3.1.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>iIX8Q3yLFML8vgT93Gr2qGtj7ZMXWw7hdtqaqT7I6T4=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PowerTray.exe" size="229376">
       <assemblyIdentity name="PowerTray" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -98,7 +86,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Jz8ZK5pTAP4AXjT8qEJTo6xUnvo0ruaCjHhDeEDr/n0=</dsig:DigestValue>
+        <dsig:DigestValue>vlIwCgGiFoCV5HZWV6JFAPq59Cydb9EUA+n1JhBdYJM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
