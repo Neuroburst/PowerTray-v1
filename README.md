@@ -1,3 +1,4 @@
+# THIS PROJECT IS NO LONGER MAINTANED! PLEASE USE https://github.com/Neuroburst/PowerTray/ instead!
 # PowerTray
 Welcome! PowerTray is a battery monitor that displays your battery percentage/time left.
 The tooltip also displays useful information.
